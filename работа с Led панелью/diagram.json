@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Данил Плещёв",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix1",
+      "top": -354.6,
+      "left": 26.64,
+      "attrs": { "chain": "4" }
+    },
+    { "type": "wokwi-logic-analyzer", "id": "logic1", "top": 77.15, "left": 518.4, "attrs": {} },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix2",
+      "top": -431.4,
+      "left": 26.64,
+      "attrs": { "chain": "4" }
+    }
+  ],
+  "connections": [
+    [ "matrix1:CS", "mega:53", "#8f4814", [ "h67.2", "v403.2", "h-67.2" ] ],
+    [ "matrix1:DIN", "mega:51", "black", [ "h105.6", "v412.8" ] ],
+    [ "matrix1:GND", "mega:GND.1", "black", [ "h0", "v96", "h-259.2" ] ],
+    [ "matrix1:V+", "mega:5V", "green", [ "h28.8", "v470.4", "h-240" ] ],
+    [ "mega:51", "logic1:D0", "black", [ "v1.6", "h99.4", "v-67.2" ] ],
+    [ "mega:53", "logic1:D1", "#8f4814", [ "v1.7", "h128.2", "v-67.2" ] ],
+    [ "matrix1:CLK", "mega:52", "red", [ "h-48", "v459.1" ] ],
+    [ "mega:52", "logic1:D2", "red", [ "v30.5", "h157.4" ] ],
+    [ "matrix1:GND.2", "mega:GND.2", "black", [ "h-19.04", "v115.2", "h105.6" ] ],
+    [ "matrix2:GND.2", "mega:GND.3", "black", [ "h-38.24", "v374.4", "h201.6" ] ],
+    [ "matrix2:V+", "matrix1:V+", "green", [ "h28.8", "v76.8" ] ],
+    [ "matrix2:GND", "matrix1:GND", "black", [ "h48", "v76.8" ] ],
+    [ "matrix2:DIN", "matrix1:DIN", "green", [ "h57.6", "v76.8" ] ],
+    [ "matrix2:CLK", "matrix1:CLK", "green", [ "h19.2", "v76.8" ] ],
+    [ "mega:10", "matrix2:CS", "violet", [ "v-85.8", "h72.9", "v-316.8" ] ],
+    [ "mega:10", "logic1:D5", "violet", [ "v-85.8", "h284.1", "v201.6" ] ]
+  ],
+  "dependencies": {}
+}
